@@ -33,7 +33,7 @@ public class User implements Serializable {
     @JoinColumn(name = "user_type_id")
     private UserType userType;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subscription_type_id")
     private SubscriptionType subscriptionType;
 
