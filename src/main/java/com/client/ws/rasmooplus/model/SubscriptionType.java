@@ -16,7 +16,7 @@ import lombok.*;
 public class SubscriptionType implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "subscriptions_type_id")
     private long id;
 
@@ -27,7 +27,7 @@ public class SubscriptionType implements Serializable {
 
     private BigDecimal price;
 
-    @Column(name = "product_key")
+    @Column(name = "product_key", unique = true)
     private String productKey;       
 }
 
@@ -59,4 +59,19 @@ public class SubscriptionType implements Serializable {
  * No entanto, a ordem exata pode variar dependendo da abordagem adotada pelo desenvolvedor.
  * É importante lembrar que as classes do modelo e do repositório são geralmente criadas primeiro,
  * seguidas pelas classes de serviço e, por fim, pelo controlador.
+ * 
+ * O Model é uma classe que representa uma entidade de negócio, ou seja, 
+ * um objeto que possui atributos e comportamentos que definem suas características e ações.
+ * 
+ * O Repository é uma interface que define métodos para interagir com o banco de dados, 
+ * como inserir, atualizar, excluir e buscar dados.
+ * 
+ * O Service contém a lógica de negócio da aplicação. 
+ * Ele é responsável por implementar as regras de negócio e coordenar as operações entre o Controller e o Repository. 
+ * O Service pode realizar validações de dados, cálculos complexos, chamadas a APIs externas, entre outras tarefas.
+ * 
+ * O Controller é uma classe que recebe as requisições HTTP do cliente e envia as respostas HTTP de volta. 
+ * Ele atua como intermediário entre o cliente e a lógica de negócio da aplicação. 
+ * O Controller recebe os parâmetros da requisição, chama os métodos do Service para executar as operações necessárias e 
+ * retorna uma resposta HTTP com os dados solicitados ou uma mensagem de erro, se necessário.
  */
