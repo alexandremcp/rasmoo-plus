@@ -75,8 +75,16 @@ public class SubscriptionTypeServiceImpl implements SubscriptionTypeService {
         .build());
     }
 
+    /**
+     * Este método é chamado pelo método delete da classe SubscriptionTypeController
+     * que por sua vez é chamado pelo método delete da classe SubscriptionTypeResource
+     * Ele remove um objeto SubscriptionType caso o mesmo exista e a existencia é verificada através da chamada do método getSubscriptionType
+     * @param id
+     */
     @Override
     public void delete(Long id) {
+        getSubscriptionType(id);
+        subscriptionTypeRespository.delete(getSubscriptionType(id));
     }
 
     /**
