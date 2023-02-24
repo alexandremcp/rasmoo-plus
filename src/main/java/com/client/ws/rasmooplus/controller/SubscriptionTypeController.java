@@ -17,6 +17,8 @@ import com.client.ws.rasmooplus.dto.SubscriptionTypeDto;
 import com.client.ws.rasmooplus.model.SubscriptionType;
 import com.client.ws.rasmooplus.service.SubscriptionTypeService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/subscription-type")
 public class SubscriptionTypeController {
@@ -35,7 +37,7 @@ public class SubscriptionTypeController {
     }
 
     @PostMapping
-    public ResponseEntity<SubscriptionType> create(@RequestBody SubscriptionTypeDto dto) {
+    public ResponseEntity<SubscriptionType> create(@Valid @RequestBody SubscriptionTypeDto dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(subscriptionTypeService.create(dto));
     }
 

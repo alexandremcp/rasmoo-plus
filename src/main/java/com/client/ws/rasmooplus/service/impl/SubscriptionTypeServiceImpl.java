@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.client.ws.rasmooplus.dto.SubscriptionTypeDto;
 import com.client.ws.rasmooplus.exception.BadRequestException;
 import com.client.ws.rasmooplus.exception.NotFoundException;
+import com.client.ws.rasmooplus.mapper.SubscriptionTypeMapper;
 import com.client.ws.rasmooplus.model.SubscriptionType;
 import com.client.ws.rasmooplus.repository.SubscriptionTypeRepository;
 import com.client.ws.rasmooplus.service.SubscriptionTypeService;
@@ -46,13 +47,7 @@ public class SubscriptionTypeServiceImpl implements SubscriptionTypeService {
         if (Objects.nonNull(dto.getId())) {
             throw new BadRequestException("Id deve ser nulo");
         }
-        return subscriptionTypeRespository.save(SubscriptionType.builder()
-            .id(dto.getId())
-            .name(dto.getName())
-            .accessMonth(dto.getAccessMonth())
-            .price(dto.getPrice())
-            .productKey(dto.getProductKey())
-        .build());
+        return subscriptionTypeRespository.save(SubscriptionTypeMapper.fromDtoToEntity(dto));
     }
 
     /**
@@ -66,14 +61,10 @@ public class SubscriptionTypeServiceImpl implements SubscriptionTypeService {
     @Override
     public SubscriptionType update(Long id, SubscriptionTypeDto dto) {
         getSubscriptionType(id);
-        return subscriptionTypeRespository.save(SubscriptionType.builder()
-            .id(id)
-            .name(dto.getName())
-            .accessMonth(dto.getAccessMonth())
-            .price(dto.getPrice())
-            .productKey(dto.getProductKey())
-        .build());
+        dto.setId(id);      // Neste caso o id é passado porque o método getSubscriptionType não retorna o id já que ele não é um atributo do objeto SubscriptionType
+        return subscriptionTypeRespository.save(SubscriptionTypeMapper.fromDtoToEntity(dto));
     }
+
 
     /**
      * Este método é chamado pelo método delete da classe SubscriptionTypeController

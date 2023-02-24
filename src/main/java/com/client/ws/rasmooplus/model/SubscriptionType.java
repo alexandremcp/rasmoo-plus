@@ -18,12 +18,12 @@ public class SubscriptionType implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "subscriptions_type_id")
-    private long id;
+    private Long id;
 
     private String name;
 
     @Column(name = "access_months")
-    private Long accessMonth;
+    private Long accessMonths;
 
     private BigDecimal price;
 

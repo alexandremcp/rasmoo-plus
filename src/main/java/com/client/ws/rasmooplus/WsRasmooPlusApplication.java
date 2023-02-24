@@ -9,5 +9,4 @@ public class WsRasmooPlusApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(WsRasmooPlusApplication.class, args);
 	}
-
 }
