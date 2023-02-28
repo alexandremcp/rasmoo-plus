@@ -11,22 +11,24 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id")
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "users_id")
+    private Long id;
 
     private String name;
 
+    @Column(unique = true)
     private String email;
 
+    @Column(unique = true)
     private String phone;
 
+    @Column(unique = true)
     private String cpf;
 
     @Column(name = "dt_subscription")
@@ -35,13 +37,14 @@ public class User implements Serializable {
     @Column(name = "dt_expiration")
     private LocalDate dtExpiration;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_type_id")
     private UserType userType;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "subscription_type_id")
+    @JoinColumn(name = "subscriptions_type_id")
     private SubscriptionType subscriptionType;
+
 }
 
 /*

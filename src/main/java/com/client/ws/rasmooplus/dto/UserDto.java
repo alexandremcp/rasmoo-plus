@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class UserDto {
 
-    private long id;
+    private Long id;
 
     @NotBlank(message = "Valor não pode ser nulo ou vazio")
     @Size(min = 6, message = "Valor mínimo igual a 6 caracteres")
