@@ -1,6 +1,9 @@
 package com.client.ws.rasmooplus.controller;
 
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.client.ws.rasmooplus.dto.SubscriptionTypeDto;
 import com.client.ws.rasmooplus.model.SubscriptionType;
 import com.client.ws.rasmooplus.service.SubscriptionTypeService;
-
-import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/subscription-type")

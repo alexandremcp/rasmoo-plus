@@ -3,9 +3,9 @@ package com.client.ws.rasmooplus.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import jakarta.persistence.Entity;
+import javax.persistence.*;
+
 import lombok.*;
-import jakarta.persistence.*;
 
 @Data
 @NoArgsConstructor

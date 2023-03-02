@@ -6,8 +6,6 @@ import java.util.Optional;
 
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.stereotype.Service;
-
-import com.client.ws.rasmooplus.controller.SubscriptionTypeController;
 import com.client.ws.rasmooplus.controller.SubscriptionTypeController;
 import com.client.ws.rasmooplus.dto.SubscriptionTypeDto;
 import com.client.ws.rasmooplus.exception.BadRequestException;

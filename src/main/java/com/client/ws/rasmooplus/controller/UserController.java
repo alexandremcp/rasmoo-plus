@@ -6,7 +6,7 @@ import com.client.ws.rasmooplus.dto.UserDto;
 import com.client.ws.rasmooplus.model.User;
 import com.client.ws.rasmooplus.service.UserService;
 
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

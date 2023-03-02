@@ -3,9 +3,10 @@ package com.client.ws.rasmooplus.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.*;
+
 import org.springframework.hateoas.RepresentationModel;
 
-import jakarta.persistence.*;
 import lombok.*;
 
 @Data
