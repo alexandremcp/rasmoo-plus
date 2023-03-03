@@ -1,5 +1,8 @@
 package com.client.ws.rasmooplus.integration.impl;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,18 +22,26 @@ public class WsRaspayIntegrationImpl implements WsRaspayIntegration {
     }
 
     @Override
-    public CustomerDto createCustomer(CustomerDto customerDto) {
-        throw new UnsupportedOperationException("Unimplemented method 'createCustomer'");
+    public CustomerDto createCustomer(CustomerDto dto) {
+        try {
+            // Cria um objeto HttpEntity com o CustomerDto como corpo da requisição
+            HttpEntity<CustomerDto> request = new HttpEntity<>(dto);  
+            // Faz a requisição POST para o endpoint http://localhost:8081/ws-raspay/v1/customer
+            ResponseEntity<CustomerDto> response = restTemplate.exchange("http://localhost:8081/ws-raspay/v1/customer", HttpMethod.POST, request, CustomerDto.class);  
+            return response.getBody();
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     @Override
-    public OrderDto createOrder(OrderDto orderDto) {
-        throw new UnsupportedOperationException("Unimplemented method 'createOrder'");
+    public OrderDto createOrder(OrderDto dto) {
+        return null;
     }
 
     @Override
-    public Boolean processPayment(PaymentDto paymentDto) {
-        throw new UnsupportedOperationException("Unimplemented method 'processPayment'");
+    public Boolean processPayment(PaymentDto dto) {
+        return null;
     }
     
 }
